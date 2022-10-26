@@ -3,6 +3,7 @@ import {
   BookOpenIcon,
   ClockIcon,
   MagnifyingGlassIcon,
+  InformationCircleIcon,
 } from 'react-native-heroicons/outline';
 import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
@@ -68,6 +69,11 @@ const HomeScreen = () => {
                 screen: 'recover-card-number',
                 name: 'Recuperar número do cartão',
                 icon: MagnifyingGlassIcon,
+              },
+              {
+                screen: 'about',
+                name: 'Sobre',
+                icon: InformationCircleIcon,
               },
             ],
             3,

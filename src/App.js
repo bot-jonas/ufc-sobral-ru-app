@@ -12,6 +12,7 @@ import {Provider, useDispatch} from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {login} from './features/userSlice';
 import RecoverCardNumberScreen from './screens/RecoverCardNumberScreen';
+import AboutScreen from './screens/AboutScreen';
 
 const Stack = createNativeStackNavigator();
 const ASYNC_STORAGE_USER_KEY = 'ufc-sobral-ru@user';
@@ -51,6 +52,11 @@ const App = () => {
                 name="recover-card-number"
                 options={{title: 'Recuperar Número do Cartão'}}
                 component={RecoverCardNumberScreen}
+              />
+              <Stack.Screen
+                name="about"
+                options={{title: 'Sobre'}}
+                component={AboutScreen}
               />
             </Stack.Navigator>
           </NavigationContainer>
