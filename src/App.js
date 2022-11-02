@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {login} from './features/userSlice';
 import RecoverCardNumberScreen from './screens/RecoverCardNumberScreen';
 import AboutScreen from './screens/AboutScreen';
+import codePush from 'react-native-code-push';
 
 const Stack = createNativeStackNavigator();
 const ASYNC_STORAGE_USER_KEY = 'ufc-sobral-ru@user';
@@ -82,4 +83,4 @@ const LoadAsyncStorageData = props => {
   return props.children;
 };
 
-export default App;
+export default codePush(App);
