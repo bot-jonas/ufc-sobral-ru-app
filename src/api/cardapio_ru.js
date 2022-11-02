@@ -29,7 +29,7 @@ function extract_data(rows_html, indexes) {
   // Get table values
   const table_values = [];
 
-  for (let i = indexes['values_rows'][0]; i < indexes['values_rows'][1]; i++) {
+  for (let i = indexes['values_rows'][0]; i <= indexes['values_rows'][1]; i++) {
     table_values.push(extract_columns(rows_html[i]));
   }
 
