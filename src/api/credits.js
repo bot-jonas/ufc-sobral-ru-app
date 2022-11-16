@@ -82,15 +82,17 @@ class PixWS {
   }
 }
 
+const BASE_URL = 'https://ufc-sobral-ru.yes0401.net';
+
 async function test_server() {
-  const r = await fetch('https://ufc-sobral-ru.yes0401.net/hello');
+  const r = await fetch(`${BASE_URL}/hello`);
 
   return r;
 }
 
 async function handlePIXPayment(amountCredits, user) {
   // TODO: Rewrite this without the need of a server
-  const req = await fetch('https://ufc-sobral-ru.yes0401.net/pix', {
+  const req = await fetch(`${BASE_URL}/pix`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -110,7 +112,7 @@ async function handlePIXPayment(amountCredits, user) {
 async function handleGRUPayment(amountCredits, user) {
   // TODO: Rewrite this without the need of a server
   Linking.openURL(
-    `https://ufc-sobral-ru.yes0401.net/gru.pdf?amount_credits=${amountCredits}&card_number=${user.cardNumber}&registration=${user.registration}`,
+    `${BASE_URL}/gru.pdf?amount_credits=${amountCredits}&card_number=${user.cardNumber}&registration=${user.registration}`,
   );
 }
 
