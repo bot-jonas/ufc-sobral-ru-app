@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {Linking, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import Dropdown from '../components/Dropdown';
 import SimpleTable from '../components/SimpleTable';
 import {get_cached_menu} from '../api/cardapio_ru';
@@ -73,6 +73,27 @@ const MenuScreen = () => {
         <Text style={{color: 'black'}}>{status}</Text>
       ) : (
         <>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginBottom: 8,
+            }}>
+            <Text
+              style={{
+                color: 'black',
+                fontStyle: 'italic',
+              }}>
+              Dados retirados de{' '}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                Linking.openURL('https://sobral.ufc.br/ru/');
+              }}>
+              <Text style={{color: 'blue', fontStyle: 'italic'}}>
+                https://sobral.ufc.br/ru/
+              </Text>
+            </TouchableOpacity>
+          </View>
           <View
             style={{
               marginBottom: 12,
