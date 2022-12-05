@@ -58,16 +58,18 @@ async function get_menu() {
     ...table_html.matchAll(/<tr(?:.*?)>(.*?)<\/tr>/g, table_html),
   ].map(m => m[1]);
 
+  const lunch_title_row = 1;
   const lunch_table = extract_data(rows_html, {
-    title_row: 1,
-    headers_row: 2,
-    values_rows: [3, 9],
+    title_row: lunch_title_row,
+    headers_row: lunch_title_row + 1,
+    values_rows: [lunch_title_row + 2, lunch_title_row + 8],
   });
 
+  const dinner_title_row = 13;
   const dinner_table = extract_data(rows_html, {
-    title_row: 11,
-    headers_row: 12,
-    values_rows: [13, 19],
+    title_row: dinner_title_row,
+    headers_row: dinner_title_row + 1,
+    values_rows: [dinner_title_row + 2, dinner_title_row + 8],
   });
 
   return {
@@ -80,6 +82,9 @@ async function get_menu() {
 }
 
 async function get_cached_menu() {
+  // TODO: Create a bot to populate an online file with a fixed format menu.
+  // Use a service like pastebin.
+
   const today = new Date().toDateString();
 
   let data = await AsyncStorage.getItem(ASYNC_STORAGE_MENU_KEY);
